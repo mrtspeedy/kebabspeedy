@@ -1,0 +1,24 @@
+package pages
+
+import (
+	"github.com/mrtspeedy/kebabspeedy/internal/views/layouts"
+)
+
+templ NotFoundPage() {
+	@layouts.BaseLayout("404 — Not Found", "black") {
+		<section class="min-h-svh flex flex-col items-center justify-center gap-6 px-6 text-center">
+			<h1 class="hero-heading electric-blue animate-glow">
+				404
+			</h1>
+			<h2 class="hero-subtitle">
+				The world you were searching for doesn't exist.
+			</h2>
+			<a href="/" 
+			   class="mt-8 btn btn-outline border-white/20 text-white transition-all duration-300 
+			          hover:border-electric-blue hover:text-electric-blue hover:bg-transparent 
+			          hover:shadow-[0_0_15px_rgba(0,212,255,0.5),0_0_30px_rgba(0,212,255,0.3)]">
+				Turn left at this crossroad
+			</a>
+		</section>
+	}
+}

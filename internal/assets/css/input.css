@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+@import "tailwindcss" source(none);
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+  --font-quicksand: "Quicksand", sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+  --color-electric-blue: #00d4ff;
+  --animate-fade-in: fade-in 1.5s ease-out both;
+}
+@plugin "@tailwindcss/typography";
+@source "../../views/**/*.templ";
+@plugin "daisyui" {
+  themes: light, night --default, black, dark;
+}
+
+@keyframes fade-in {
+    from {
+    opacity: 0;
+    pointer-events: none;
+  }
+  to {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 8px currentColor,
+      0 0 16px currentColor;
+    opacity: 0.8;
+  }
+  50% {
+    text-shadow:
+      0 0 12px currentColor,
+      0 0 32px currentColor,
+      0 0 64px currentColor;
+    opacity: 1;
+  }
+}
+
+@keyframes fly-in {
+  0% {
+    opacity: 0;
+    transform: scale(5) translateY(-20px);
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@utility electric-blue {
+  color: var(--color-electric-blue);
+  text-shadow:
+    0 0 8px rgb(0 212 255 / 60%),
+    0 0 24px rgb(0 212 255 / 40%),
+    0 0 48px rgb(0 212 255 / 20%);
+}
+
+@utility animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@utility animate-glow {
+  animation: glow-pulse 10s ease-in-out infinite;
+}
+
+@utility animate-hero {
+  animation: 
+    fly-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) both,
+    glow-pulse 10s ease-in-out infinite;
+}
+
+@utility hero-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+}
+
+@utility hero-subtitle {
+  font-family: 'Quicksand', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.5rem); 
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--color-gray-400);
+  display: flex;
+  align-items: center;
+  min-height: 1.5em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+    text-shadow: 0 0 12px rgb(0 212 255 / 80%), 0 0 32px rgb(0 212 255 / 50%);
+  }
+}

@@ -1,0 +1,20 @@
+package pages
+
+import (
+	"github.com/mrtspeedy/kebabspeedy/internal/views/layouts"
+)
+
+templ HomePage() {
+	@layouts.BaseLayout("mrtspeedy", "night") {
+		<section id="hero-section" class="min-h-screen flex flex-col items-center justify-center gap-6">
+			<h1 class="hero-heading electric-blue animate-hero">
+				mrtspeedy
+			</h1>
+			<div class="w-full flex justify-center">
+				<h2 class="hero-subtitle">
+					<span>Procrastinating...</span>
+				</h2>
+       		 </div>
+		</section>
+	}
+}

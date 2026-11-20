@@ -1,0 +1,5 @@
+# Generated templ files
+*_templ.go
+
+# Node
+node_modules/
